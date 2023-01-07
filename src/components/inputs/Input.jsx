@@ -15,7 +15,7 @@ const Input = ({
         type={type}
         onChange={onChange}
         placeholder={placeholder}
-        className="pt-[8px] pb-[8px] pl-[16px] pr-[16px] rounded-[8px] h-[40px] border-2 border-neutral-400"
+        className="pt-[8px] pb-[8px] pl-[16px] pr-[16px] rounded-[8px] h-[40px] border-2 border-neutral-400 focus:border-primary"
       />
     </div>
   );

@@ -6,13 +6,10 @@ import {
   updateItem,
 } from 'services/items';
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import MainLayout from 'layout/MainLayout';
 import TaskModal from 'components/modals/TaskModal';
 import axiosInstance from 'utils/axios';
-import { getAllItems } from 'store/features/itemsSlice';
-import { getAllTodos } from 'store/features/todosSlice';
 import { useTodos } from 'store/TodosProvider';
 
 const Todos = ({ todo }) => {

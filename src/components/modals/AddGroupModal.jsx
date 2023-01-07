@@ -1,9 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-
 import Input from 'components/inputs/Input';
 import Modal from 'components/modals/Modal';
 import TextArea from 'components/inputs/TextArea';
-import { createNewTodo } from 'store/features/todosSlice';
 import { useState } from 'react';
 import { useTodos } from 'store/TodosProvider';
 
@@ -11,8 +8,6 @@ const AddGroupModal = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-
-  const dispatch = useDispatch();
 
   const { handleCreateGroup } = useTodos();
 

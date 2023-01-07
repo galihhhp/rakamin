@@ -1,10 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import Input from 'components/inputs/Input';
 import Modal from 'components/modals/Modal';
-import { createNewItem } from 'store/features/itemsSlice';
-import { createNewTodo } from 'store/features/todosSlice';
 
 const TaskModal = ({ isCreate, todoId, onAction, item }) => {
   const [name, setName] = useState(isCreate ? '' : item.name);
@@ -13,10 +10,8 @@ const TaskModal = ({ isCreate, todoId, onAction, item }) => {
   );
   const [isOpen, setIsOpen] = useState(false);
 
-  const dispatch = useDispatch();
-
   const handleCreate = () => {
-    dispatch(createNewItem({ name, progress, todoId }));
+    // dispatch(createNewItem({ name, progress, todoId }));
 
     handleModal();
   };

@@ -1,22 +1,19 @@
 import { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import MainLayout from 'layout/MainLayout';
 import Todos from 'components/cards/Todos';
 import axiosInstance from 'utils/axios';
-import { getAllItems } from 'store/features/itemsSlice';
-import { getAllTodos } from 'store/features/todosSlice';
 import { useTodos } from 'store/TodosProvider';
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const todos = useSelector((state) => state.todos.todos);
-  const items = useSelector((state) => state.items.items);
+  // const items = useSelector((state) => state.items.items);
 
   const init = useCallback(() => {
-    dispatch(getAllTodos());
+    // dispatch(getAllTodos());
     // dispatch(getAllItems())
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     // init();

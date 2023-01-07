@@ -2,7 +2,6 @@ import { createContext, useContext } from 'react';
 import { createItem, getItems } from 'services/items';
 import { createTodo, getTodos } from 'services/todos';
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 const TodosContext = createContext();
 

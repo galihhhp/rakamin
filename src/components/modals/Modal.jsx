@@ -12,7 +12,7 @@ const Modal = ({
   return (
     <div
       // onClick={onClose}
-      className="flex fixed top-0 left-0 w-screen h-screen bg-black/20 justify-center items-center">
+      className="flex fixed top-0 left-0 w-screen h-screen z-50 bg-black/20 justify-center items-center">
       <div
         className={`flex flex-col fixed bg-white z-50 rounded-[10px] shadow-md ${size}`}>
         <div class="flex justify-between p-[24px]">
