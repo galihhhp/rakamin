@@ -1,7 +1,12 @@
 import Dashboard from 'pages/Dashboard';
+import TodosProvider from 'store/TodosProvider';
 
 function App() {
-  return <Dashboard />;
+  return (
+    <TodosProvider>
+      <Dashboard />
+    </TodosProvider>
+  );
 }
 
 export default App;

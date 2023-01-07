@@ -26,29 +26,6 @@ export const createNewTodo = createAsyncThunk(
   }
 );
 
-export const updateTodoById = createAsyncThunk(
-  'todos/update',
-
-  async (data) => {
-    const response = await updateTodo(data.id, {
-      title: data.title,
-      description: data.description,
-    });
-
-    return response.data;
-  }
-);
-
-export const deleteTodoById = createAsyncThunk(
-  'todos/delete',
-
-  async (id) => {
-    const response = await deleteTodo(id);
-
-    return response.data;
-  }
-);
-
 export const todosSlice = createSlice({
   name: 'todos',
   initialState,
@@ -59,41 +36,17 @@ export const todosSlice = createSlice({
     [createNewTodo.fulfilled]: (state, action) => {
       state.todos.push(action.payload);
     },
-    [updateTodoById.fulfilled]: (state, action) => {
-      const todoIndex = state.todos.findIndex(
-        (todo) => todo.id === action.payload.id
-      );
-      state.todos[todoIndex] = action.payload;
-    },
-    [deleteTodoById.fulfilled]: (state, action) => {
-      const todoIndex = state.todos.findIndex(
-        (todo) => todo.id === action.payload.id
-      );
-      state.todos.splice(todoIndex, 1);
-    },
     [getAllTodos.rejected]: (state, action) => {
-      console.log(action);
+      // console.log(action);
     },
     [createNewTodo.rejected]: (state, action) => {
-      console.log(action);
-    },
-    [updateTodoById.rejected]: (state, action) => {
-      console.log(action);
-    },
-    [deleteTodoById.rejected]: (state, action) => {
-      console.log(action);
+      // console.log(action);
     },
     [getAllTodos.pending]: (state, action) => {
-      console.log(action);
+      // console.log(action);
     },
     [createNewTodo.pending]: (state, action) => {
-      console.log(action);
-    },
-    [updateTodoById.pending]: (state, action) => {
-      console.log(action);
-    },
-    [deleteTodoById.pending]: (state, action) => {
-      console.log(action);
+      // console.log(action);
     },
   },
 });

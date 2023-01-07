@@ -5,6 +5,7 @@ import Modal from 'components/modals/Modal';
 import TextArea from 'components/inputs/TextArea';
 import { createNewTodo } from 'store/features/todosSlice';
 import { useState } from 'react';
+import { useTodos } from 'store/TodosProvider';
 
 const AddGroupModal = () => {
   const [title, setTitle] = useState('');
@@ -13,9 +14,11 @@ const AddGroupModal = () => {
 
   const dispatch = useDispatch();
 
+  const { handleCreateGroup } = useTodos();
+
   const handleCreate = () => {
-    dispatch(createNewTodo({ title, description }));
-    console.log('Add', title, description);
+    handleCreateGroup({ title, description });
+
     handleModal();
   };
 

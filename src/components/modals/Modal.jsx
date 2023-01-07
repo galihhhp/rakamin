@@ -20,7 +20,7 @@ const Modal = ({
             <h1 className="font-bold text-[18px]">{title}</h1>
           </div>
           {closeIcon && (
-            <button>
+            <button onClick={onClose}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
