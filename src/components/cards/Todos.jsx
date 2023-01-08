@@ -7,11 +7,8 @@ import {
 } from 'services/items';
 import { useCallback, useEffect, useState } from 'react';
 
-import DeleteModal from 'components/modals/DeleteModal';
-import MainLayout from 'layout/MainLayout';
 import Menu from 'components/modals/Menu';
 import TaskModal from 'components/modals/TaskModal';
-import axiosInstance from 'utils/axios';
 import { useTodos } from 'store/TodosProvider';
 
 const Todos = ({ todo, bgColor, textColor, periode }) => {
@@ -64,6 +61,8 @@ const Todos = ({ todo, bgColor, textColor, periode }) => {
       });
 
       setData((prev) => prev.filter((item) => item.id !== itemId));
+
+      window.location.reload();
     },
     [todo.id, todos]
   );

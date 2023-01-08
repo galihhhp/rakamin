@@ -1,5 +1,4 @@
 import axiosInstance from 'utils/axios';
-import getLocalStorage from 'utils/getLocalStorage';
 
 const signup = async (data) => {
   const res = await axiosInstance.post('/signup', data);

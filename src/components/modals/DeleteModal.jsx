@@ -13,7 +13,7 @@ const DeleteModal = ({ onAction, onOpen, onClose, isOpen }) => {
   return (
     <div>
       <button
-        className="flex items-center  hover:text-danger font-semibold text-[14px] gap-[18px]"
+        className="flex items-center  hover:text-danger font-semibold text-[14px] gap-[18px] w-full"
         onClick={onOpen}>
         <svg
           width="18"
@@ -33,6 +33,7 @@ const DeleteModal = ({ onAction, onOpen, onClose, isOpen }) => {
         onAction={onAction}
         size="w-[420px] h-[188px]"
         bgMainButtonColor="bg-danger"
+        actionButtonLabel="Delete"
         closeIcon
         titleIcon
         title="Delete Task">

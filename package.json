@@ -2,6 +2,7 @@
   "name": "rakamin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rakamin-poshhah4h-galihhhp.vercel.app/v1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

@@ -59,7 +59,7 @@ const Menu = ({ item, onMoveRight, onMoveLeft, onEdit, onDelete }) => {
               className="flex flex-col justify-between w-[320px] h-[160px] p-[20px]"
               role="none">
               <button
-                className="flex items-center hover:text-primary hover:fill-primary font-semibold text-[14px] gap-[24px]"
+                className="flex items-center hover:text-primary hover:fill-primary font-semibold text-[14px] gap-[24px] w-full"
                 onClick={onMoveRight}>
                 <svg
                   className="hover:fill-primary"
@@ -73,7 +73,7 @@ const Menu = ({ item, onMoveRight, onMoveLeft, onEdit, onDelete }) => {
                 Move Right
               </button>
               <button
-                className="flex items-center hover:text-primary font-semibold text-[14px] gap-[24px]"
+                className="flex items-center hover:text-primary font-semibold text-[14px] gap-[24px] w-full"
                 onClick={onMoveLeft}>
                 <svg
                   width="12"

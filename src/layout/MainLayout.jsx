@@ -40,6 +40,8 @@ const MainLayout = ({ children }) => {
                   password,
                   confirmPassword,
                 });
+
+            window.location.reload();
           }}
           onClose={() => setState('idle')}
           show={true}
@@ -71,7 +73,11 @@ const MainLayout = ({ children }) => {
               </button>
               <button
                 className="bg-borderdash p-1 w-full rounded-md"
-                onClick={async () => await guest()}>
+                onClick={async () => {
+                  await guest();
+
+                  window.location.reload();
+                }}>
                 Login as Guest
               </button>
             </>
