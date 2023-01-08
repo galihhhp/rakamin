@@ -7,7 +7,7 @@ const getTodos = async () => {
       Authorization: `Bearer ${getLocalStorage('token')}`,
     },
   });
-  console.log(res);
+
   return res;
 };
 

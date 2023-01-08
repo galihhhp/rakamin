@@ -7,7 +7,6 @@ import Modal from 'components/modals/Modal';
 import getLocalStorage from 'utils/getLocalStorage';
 
 const MainLayout = ({ children }) => {
-  console.log(getLocalStorage('token'));
   const [state, setState] = useState('idle');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

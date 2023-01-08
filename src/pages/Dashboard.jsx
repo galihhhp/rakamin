@@ -1,25 +1,8 @@
-import { useCallback, useEffect } from 'react';
-
 import MainLayout from 'layout/MainLayout';
 import Todos from 'components/cards/Todos';
-import axiosInstance from 'utils/axios';
 import { useTodos } from 'store/TodosProvider';
 
 const Dashboard = () => {
-  // const dispatch = useDispatch();
-  // const todos = useSelector((state) => state.todos.todos);
-  // const items = useSelector((state) => state.items.items);
-
-  const init = useCallback(() => {
-    // dispatch(getAllTodos());
-    // dispatch(getAllItems())
-  }, []);
-
-  useEffect(() => {
-    // init();
-  }, [init]);
-  // console.log(todos);
-
   const { todos } = useTodos();
 
   const cardColor = [

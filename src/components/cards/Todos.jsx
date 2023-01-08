@@ -13,20 +13,17 @@ import { useTodos } from 'store/TodosProvider';
 
 const Todos = ({ todo, bgColor, textColor, periode }) => {
   const { todos } = useTodos();
-  // console.log(todos.findIndex((item) => item.id === todo.id));
   const [data, setData] = useState([]);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const handleCreate = async (input) => {
     const res = await createItem(input, todo.id);
-    // data.unshift(res.data);
 
     setData((prev) => [res.data, ...prev]);
   };
 
   const handleUpdate = async (input, itemId) => {
-    const res = await updateItem(todo.id, itemId, input);
-    console.log(res);
+    await updateItem(todo.id, itemId, input);
 
     const index = data.findIndex((item) => item.id === itemId);
 
@@ -38,7 +35,6 @@ const Todos = ({ todo, bgColor, textColor, periode }) => {
     };
 
     newData[index] = updatedItem;
-    console.log(updatedItem);
     setData(newData);
   };
 
@@ -66,7 +62,6 @@ const Todos = ({ todo, bgColor, textColor, periode }) => {
     },
     [todo.id, todos]
   );
-  // console.log(data);
 
   return (
     <div
@@ -79,7 +74,6 @@ const Todos = ({ todo, bgColor, textColor, periode }) => {
       <h2 className="text-textdark font-bold text-[12px]">{periode}</h2>
       {data && data.length > 0 ? (
         data.map((item) => {
-          // console.log(item);
           if (item.todo_id !== todo.id) return null;
 
           return (
@@ -89,7 +83,7 @@ const Todos = ({ todo, bgColor, textColor, periode }) => {
               </h3>
               <div className="flex justify-between items-center border-t border-borderdash border-dashed pt-3">
                 <div className="flex items-center gap-2 w-3/4">
-                  <div className="bg-black h-[15px] w-full rounded-full flex items-center ">
+                  <div className="bg-[#EDEDED] h-[15px] w-full rounded-full flex items-center ">
                     <div
                       style={{ width: `${item.progress_percentage}%` }}
                       className={`${

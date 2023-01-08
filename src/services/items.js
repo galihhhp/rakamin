@@ -7,12 +7,11 @@ const getItems = async (todoId) => {
       Authorization: `Bearer ${getLocalStorage('token')}`,
     },
   });
-  // console.log('SERVICES', res.data);
+
   return res;
 };
 
 const createItem = async (data, todoId) => {
-  console.log('SERVICES', data, todoId);
   const res = await axiosInstance.post(`/todos/${todoId}/items`, data, {
     headers: {
       Authorization: `Bearer ${getLocalStorage('token')}`,
@@ -33,8 +32,6 @@ const updateItem = async (todoId, itemId, data) => {
     }
   );
 
-  console.log('SERVICES', res);
-
   return res;
 };
 
@@ -48,8 +45,6 @@ export const moveItem = async (todoId, itemId, target) => {
       },
     }
   );
-
-  console.log('SERVICES', target);
 
   return res;
 };
