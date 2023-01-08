@@ -32,11 +32,42 @@ const Dashboard = () => {
 
   const { todos } = useTodos();
 
+  const cardColor = [
+    'border-primary bg-bgprimary',
+    'border-warning bg-bgwarning',
+    'border-danger bg-[#FFFAFA]',
+    'border-success bg-bgsuccess',
+  ];
+
+  const textColor = [
+    'text-primary',
+    'text-warning',
+    'text-danger',
+    'text-success',
+  ];
+
+  const random = Math.floor(Math.random() * 4);
+
   return (
     <MainLayout>
       <button onClick={signUp}>SIGN UP</button>
       <div className="flex gap-2 p-[24px]">
-        {todos && todos.map((todo) => <Todos todo={todo} />)}
+        {todos &&
+          todos.map((todo, index) => (
+            <Todos
+              todo={todo}
+              bgColor={
+                todos.length > cardColor.length
+                  ? cardColor[random]
+                  : cardColor[index]
+              }
+              textColor={
+                todos.length > textColor.length
+                  ? textColor[random]
+                  : textColor[index]
+              }
+            />
+          ))}
       </div>
     </MainLayout>
   );

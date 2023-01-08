@@ -14,7 +14,7 @@ import TaskModal from 'components/modals/TaskModal';
 import axiosInstance from 'utils/axios';
 import { useTodos } from 'store/TodosProvider';
 
-const Todos = ({ todo }) => {
+const Todos = ({ todo, bgColor, textColor }) => {
   const { todos } = useTodos();
   // console.log(todos.findIndex((item) => item.id === todo.id));
   const [data, setData] = useState([]);
@@ -68,15 +68,17 @@ const Todos = ({ todo }) => {
     [todo.id, todos]
   );
   // console.log(data);
+
   return (
     <div
       key={todo.id}
-      className="max-w-md w-full flex flex-col h-min items-start p-[20px] gap-[8px] border-2 bg-primary/10 rounded-[4px] border-primary bg-bgprimary">
-      <h1 className="border border-borderprimary py-[4px] px-[8px] rounded-[4px] text-primary min-w-[72px] text-center font-normal">
+      className={`max-w-md w-full flex flex-col h-min items-start p-[20px] gap-[8px] border-2 bg-primary/10 rounded-[4px] ${bgColor}`}>
+      <h1
+        className={`border ${bgColor} ${textColor} py-[4px] px-[8px] rounded-[4px] min-w-[72px] text-center font-normal`}>
         {todo.title}
       </h1>
       <h2 className="text-textdark font-bold text-[12px]">January - March</h2>
-      {data &&
+      {data && data.length > 0 ? (
         data.map((item) => {
           // console.log(item);
           if (item.todo_id !== todo.id) return null;
@@ -90,13 +92,12 @@ const Todos = ({ todo }) => {
                 <div className="flex items-center gap-2 w-3/4">
                   <div className="bg-black h-[15px] w-full rounded-full flex items-center ">
                     <div
+                      style={{ width: `${item.progress_percentage}%` }}
                       className={`${
                         item.progress_percentage === 100
                           ? 'bg-success'
-                          : 'bg-red-100'
-                      } h-[15px] rounded-l-full w-["${
-                        item.progress_percentage
-                      }"] w-10`}></div>
+                          : 'bg-primary'
+                      } h-[15px] rounded-l-full`}></div>
                   </div>
                   {item.progress_percentage === 100 ? (
                     <div className="rounded-full h-4 w-4 bg-success flex justify-center items-center">
@@ -116,7 +117,9 @@ const Todos = ({ todo }) => {
                       </svg>
                     </div>
                   ) : (
-                    <div>{item.progress_percentage ?? 0}%</div>
+                    <div className="text-[12px] text-[#757575] font-normal">
+                      {item.progress_percentage ?? 0}%
+                    </div>
                   )}
                 </div>
                 {/* <button onClick={() => setMenu(!menu)}>...</button> */}
@@ -149,7 +152,14 @@ const Todos = ({ todo }) => {
               </div>
             </div>
           );
-        })}
+        })
+      ) : (
+        <div className="flex flex-col w-full h-[40px] rounded-[4px] bg-bggrey border border-bordergrey py-[8px] px-[16px]">
+          <h3 className="font-bold text-[14px] h-full text-textdark">
+            No Tasks
+          </h3>
+        </div>
+      )}
 
       <TaskModal
         isCreate
