@@ -6,6 +6,8 @@ const Modal = ({
   size,
   title,
   closeIcon,
+  bgMainButtonColor = 'bg-primary',
+  titleIcon,
 }) => {
   if (!show) return null;
 
@@ -16,7 +18,24 @@ const Modal = ({
       <div
         className={`flex flex-col fixed bg-white z-50 rounded-[10px] shadow-md ${size}`}>
         <div class="flex justify-between p-[24px]">
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
+            {titleIcon && (
+              <svg
+                width="20"
+                height="18"
+                viewBox="0 0 20 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10 7V9M10 13H10.01M3.07183 17H16.9282C18.4678 17 19.4301 15.3333 18.6603 14L11.7321 2C10.9623 0.666667 9.03778 0.666667 8.26798 2L1.33978 14C0.56998 15.3333 1.53223 17 3.07183 17Z"
+                  stroke="#E11428"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+
             <h1 className="font-bold text-[18px]">{title}</h1>
           </div>
           {closeIcon && (
@@ -46,7 +65,7 @@ const Modal = ({
           </button>
           <button
             onClick={onAction}
-            className="w-[76px] h-[32px] border border-neutral-400 rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center">
+            className={`w-[76px] h-[32px] rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center ${bgMainButtonColor} text-white`}>
             Save
           </button>
         </div>
