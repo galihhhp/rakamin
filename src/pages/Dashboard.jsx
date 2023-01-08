@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   return (
     <MainLayout>
-      <div className="flex gap-2 p-[24px]">
+      <div className="flex gap-2 p-[24px] font-nunito">
         {todos && todos.length > 0 ? (
           todos.map((todo, index) => (
             <Todos
