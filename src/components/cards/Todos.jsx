@@ -14,7 +14,7 @@ import TaskModal from 'components/modals/TaskModal';
 import axiosInstance from 'utils/axios';
 import { useTodos } from 'store/TodosProvider';
 
-const Todos = ({ todo, bgColor, textColor }) => {
+const Todos = ({ todo, bgColor, textColor, periode }) => {
   const { todos } = useTodos();
   // console.log(todos.findIndex((item) => item.id === todo.id));
   const [data, setData] = useState([]);
@@ -72,12 +72,12 @@ const Todos = ({ todo, bgColor, textColor }) => {
   return (
     <div
       key={todo.id}
-      className={`max-w-md w-full flex flex-col h-min items-start p-[20px] gap-[8px] border-2 bg-primary/10 rounded-[4px] ${bgColor}`}>
+      className={`max-w-md w-full flex flex-col h-min items-start p-[20px] gap-[8px] border-2 rounded-[4px] ${bgColor}`}>
       <h1
         className={`border ${bgColor} ${textColor} py-[4px] px-[8px] rounded-[4px] min-w-[72px] text-center font-normal`}>
         {todo.title}
       </h1>
-      <h2 className="text-textdark font-bold text-[12px]">January - March</h2>
+      <h2 className="text-textdark font-bold text-[12px]">{periode}</h2>
       {data && data.length > 0 ? (
         data.map((item) => {
           // console.log(item);

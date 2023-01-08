@@ -6,6 +6,8 @@ const Modal = ({
   size,
   title,
   closeIcon,
+  actionButton = true,
+  actionButtonLabel = 'Save',
   bgMainButtonColor = 'bg-primary',
   titleIcon,
 }) => {
@@ -65,18 +67,20 @@ const Modal = ({
             )}
           </div>
           <div className="h-full pr-[24px] pl-[24px]">{children}</div>
-          <div className="flex justify-end gap-2 p-[24px]">
-            <button
-              onClick={onClose}
-              className="w-[76px] h-[32px] border border-neutral-400 rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center">
-              Cancel
-            </button>
-            <button
-              onClick={onAction}
-              className={`w-[76px] h-[32px] rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center ${bgMainButtonColor} text-white`}>
-              Save
-            </button>
-          </div>
+          {actionButton && (
+            <div className="flex justify-end gap-2 p-[24px]">
+              <button
+                onClick={onClose}
+                className="w-[76px] h-[32px] border border-neutral-400 rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center">
+                Cancel
+              </button>
+              <button
+                onClick={onAction}
+                className={`w-[76px] h-[32px] rounded-[8px] pt-[4px] pb-[4px] pl-[16px] pr-[16px] flex justify-center items-center ${bgMainButtonColor} text-white`}>
+                {actionButtonLabel}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -20,16 +20,6 @@ const Dashboard = () => {
   }, [init]);
   // console.log(todos);
 
-  const signUp = async () => {
-    const res = await axiosInstance.delete(`/todos/196/items/641`, {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzEsImV4cCI6MTY4MTY1ODg1MX0.y3mnx_7QoXdLOFRAmAbYaFjbC155Q05cUNV233tlWR0`,
-      },
-    });
-
-    console.log(res);
-  };
-
   const { todos } = useTodos();
 
   const cardColor = [
@@ -46,13 +36,21 @@ const Dashboard = () => {
     'text-success',
   ];
 
+  const periode = [
+    'January - March',
+    'April - June',
+    'July - September',
+    'October - December',
+  ];
+
   const random = Math.floor(Math.random() * 4);
+
+  // if (todos.length > cardColor.length) ulang dari index 0 lagi
 
   return (
     <MainLayout>
-      <button onClick={signUp}>SIGN UP</button>
       <div className="flex gap-2 p-[24px]">
-        {todos &&
+        {todos && todos.length > 0 ? (
           todos.map((todo, index) => (
             <Todos
               todo={todo}
@@ -66,8 +64,18 @@ const Dashboard = () => {
                   ? textColor[random]
                   : textColor[index]
               }
+              periode={
+                todos.length > periode.length ? periode[random] : periode[index]
+              }
             />
-          ))}
+          ))
+        ) : (
+          <div className="flex justify-center items-center w-full h-full">
+            <h1 className="text-textdark text-[24px] font-bold">
+              No Todos Found
+            </h1>
+          </div>
+        )}
       </div>
     </MainLayout>
   );
